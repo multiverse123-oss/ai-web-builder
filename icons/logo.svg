@@ -1,4 +1,26 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
-  <rect width="16" height="16" rx="2" fill="#1389fd" />
-  <path d="M7.398 9.091h-3.58L10.364 2 8.602 6.909h3.58L5.636 14l1.762-4.909Z" fill="#fff" />
+  <defs>
+    <linearGradient id="aiGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#667eea" />
+      <stop offset="100%" stop-color="#764ba2" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background with gradient -->
+  <rect width="16" height="16" rx="3" fill="url(#aiGradient)" />
+  
+  <!-- AI Brain + Code Symbol -->
+  <g fill="#fff">
+    <!-- Brain/Neural Network -->
+    <path d="M6 5.5c0-.3.2-.5.5-.5h3c.3 0 .5.2.5.5v1c0 .3-.2.5-.5.5h-3c-.3 0-.5-.2-.5-.5v-1z"/>
+    <circle cx="5.5" cy="7.5" r="0.5"/>
+    <circle cx="10.5" cy="7.5" r="0.5"/>
+    
+    <!-- Code Brackets -->
+    <path d="M4 9l1.5-1.5L4 6" stroke="#fff" fill="none" stroke-width="0.8"/>
+    <path d="M12 9l-1.5-1.5L12 6" stroke="#fff" fill="none" stroke-width="0.8"/>
+    
+    <!-- Central Processor -->
+    <rect x="7" y="9.5" width="2" height="2" rx="0.3"/>
+  </g>
 </svg>
