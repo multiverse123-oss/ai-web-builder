@@ -1,10 +1,8 @@
-import { MistralPrivate } from "@mistralai/mistralai-private";
+
+import { Mistral } from "@mistralai/mistralai";
 
 export function createMistralClient(apiKey: string) {
-  return new MistralPrivate({ 
-    serverURL: "https://api.mistral.ai/", 
-    apiKey: apiKey, 
-  });
+  return new Mistral(apiKey);
 }
 
 export async function streamMistralResponse(messages: any[], apiKey: string) {
@@ -16,9 +14,12 @@ export async function streamMistralResponse(messages: any[], apiKey: string) {
     content: msg.content
   }));
 
-  const response = await client.beta.conversations.startStream({ 
-    agentId: "ag_019a547f372272cc853caa9bd1bf2640", 
-    inputs: mistralMessages,
+  // Use chat completion instead of agents for the public package
+  const response = await client.chat.stream({
+    model: "mistral-large-latest", // You can change this to other models
+    messages: mistralMessages,
+    max_tokens: 8192,
+    stream: true
   });
 
   return response;
